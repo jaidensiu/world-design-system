@@ -56,7 +56,7 @@ const primitiveSources = [
 // ---------------------------------------------------------------------------
 const androidOut =
   'build/android/src/main/kotlin/com/worldcoin/designsystem';
-const iosOut = 'build/ios/Sources/WorldDesignSystem';
+const iosOut = 'Sources/WorldDesignSystem';
 
 // ---------------------------------------------------------------------------
 // Helper: build one theme pass
@@ -192,7 +192,7 @@ function copyTemplates() {
     // iOS
     {
       from: 'templates/ios/Package.swift',
-      to: 'build/ios/Package.swift',
+      to: 'Package.swift',
     },
     {
       from: 'templates/ios/Sources/WorldDesignSystem/WDSTheme.swift',

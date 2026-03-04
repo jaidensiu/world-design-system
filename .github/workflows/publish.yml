@@ -104,7 +104,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ needs.release.outputs.version }}
+          ref: main
 
       - uses: actions/setup-node@v4
         with:
@@ -114,15 +114,22 @@ jobs:
       - run: npm ci
       - run: npm run build
 
+      - name: Commit generated iOS files to main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Package.swift Sources/
+          if git diff --cached --quiet; then
+            echo "No iOS file changes to commit"
+          else
+            git commit -m "chore: update generated iOS tokens for ${{ needs.release.outputs.version }}"
+            git push origin main
+          fi
+
       - uses: actions/upload-artifact@v4
         with:
           name: android-tokens
           path: build/android/
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: ios-tokens
-          path: build/ios/
 
   publish-maven:
     needs: [release, build]
@@ -154,42 +161,3 @@ jobs:
           # Strip leading 'v' from tag for version
           export VERSION="${VERSION#v}"
           ./gradlew publish
-
-  publish-spm:
-    needs: [release, build]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: generated/ios
-          fetch-depth: 0
-        continue-on-error: true
-
-      - name: Init branch if needed
-        run: |
-          if ! git rev-parse --verify generated/ios 2>/dev/null; then
-            git checkout --orphan generated/ios
-            git rm -rf . || true
-          fi
-
-      - uses: actions/download-artifact@v4
-        with:
-          name: ios-tokens
-          path: ios-build/
-
-      - name: Copy files to repo root
-        run: |
-          cp ios-build/Package.swift .
-          rm -rf Sources
-          cp -r ios-build/Sources .
-
-      - name: Commit and tag
-        env:
-          TAG: ${{ needs.release.outputs.version }}
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add Package.swift Sources/
-          git commit -m "Update iOS tokens for ${TAG}" || echo "No changes"
-          git tag "${TAG}-ios"
-          git push origin generated/ios --tags
