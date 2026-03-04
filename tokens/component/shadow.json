@@ -1,0 +1,28 @@
+{
+  "component": {
+    "shadow": {
+      "standard": {
+        "$type": "shadow",
+        "$value": {
+          "color": "#002466",
+          "alpha": 0.1,
+          "offsetX": 0,
+          "offsetY": 10,
+          "blur": 30,
+          "cornerRadius": 12
+        }
+      },
+      "minimal": {
+        "$type": "shadow",
+        "$value": {
+          "color": "#002466",
+          "alpha": 0.1,
+          "offsetX": 0,
+          "offsetY": 2,
+          "blur": 10,
+          "cornerRadius": 12
+        }
+      }
+    }
+  }
+}

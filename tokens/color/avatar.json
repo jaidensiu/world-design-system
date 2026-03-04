@@ -1,0 +1,16 @@
+{
+  "color": {
+    "avatar": {
+      "1":  { "foreground": { "$value": "#6B4C00", "$type": "color" }, "background": { "$value": "#FFE08A", "$type": "color" } },
+      "2":  { "foreground": { "$value": "#00524A", "$type": "color" }, "background": { "$value": "#80E8D5", "$type": "color" } },
+      "3":  { "foreground": { "$value": "#5C1A99", "$type": "color" }, "background": { "$value": "#D9B3FF", "$type": "color" } },
+      "4":  { "foreground": { "$value": "#8B3A00", "$type": "color" }, "background": { "$value": "#FFB380", "$type": "color" } },
+      "5":  { "foreground": { "$value": "#003D7A", "$type": "color" }, "background": { "$value": "#99C2FF", "$type": "color" } },
+      "6":  { "foreground": { "$value": "#7A2E2E", "$type": "color" }, "background": { "$value": "#FFB3B3", "$type": "color" } },
+      "7":  { "foreground": { "$value": "#005C29", "$type": "color" }, "background": { "$value": "#80EFAA", "$type": "color" } },
+      "8":  { "foreground": { "$value": "#4A4A00", "$type": "color" }, "background": { "$value": "#E6E680", "$type": "color" } },
+      "9":  { "foreground": { "$value": "#00526B", "$type": "color" }, "background": { "$value": "#80D4E8", "$type": "color" } },
+      "10": { "foreground": { "$value": "#6B0052", "$type": "color" }, "background": { "$value": "#FF99E6", "$type": "color" } }
+    }
+  }
+}

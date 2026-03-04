@@ -1,0 +1,22 @@
+{
+  "component": {
+    "button": {
+      "small": {
+        "height":       { "$value": 44, "$type": "dimension" },
+        "cornerRadius": { "$value": 16, "$type": "dimension" }
+      },
+      "normal": {
+        "height":       { "$value": 56, "$type": "dimension" },
+        "cornerRadius": { "$value": 16, "$type": "dimension" }
+      },
+      "navBar": {
+        "height":       { "$value": 36, "$type": "dimension" },
+        "cornerRadius": { "$value": 16, "$type": "dimension" }
+      },
+      "slim": {
+        "height":       { "$value": 40, "$type": "dimension" },
+        "cornerRadius": { "$value": 16, "$type": "dimension" }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "color": {
+    "worldBlue": {
+      "loud":   { "$value": "#3FDBED", "$type": "color" },
+      "silent": { "$value": "#ECFBFD", "$type": "color" }
+    },
+    "carrotOrange": {
+      "loud":   { "$value": "#FF5A00", "$type": "color" },
+      "silent": { "$value": "#FFEDE6", "$type": "color" }
+    },
+    "purple": {
+      "loud":   { "$value": "#8600FF", "$type": "color" },
+      "silent": { "$value": "#F2E6FF", "$type": "color" }
+    },
+    "green": {
+      "loud":   { "$value": "{color.success.600}", "$type": "color" },
+      "silent": { "$value": "{color.success.100}", "$type": "color" }
+    },
+    "blue": {
+      "loud":   { "$value": "{color.info.600}", "$type": "color" },
+      "silent": { "$value": "{color.info.100}", "$type": "color" }
+    },
+    "invites": {
+      "primary": { "$value": "#00C3B6", "$type": "color" }
+    },
+    "credentialCardText": { "$value": "#FFF6D7", "$type": "color" },
+    "deepSkyBlue":        { "$value": "#007CFB", "$type": "color" },
+    "skyBlueLight":       { "$value": "#61BFFF", "$type": "color" },
+    "darkModerateBlue":   { "$value": "#2D3A78", "$type": "color" },
+    "darkBlue":           { "$value": "#0D1836", "$type": "color" }
+  }
+}

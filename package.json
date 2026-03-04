@@ -1,0 +1,14 @@
+{
+  "name": "@worldcoin/design-tokens",
+  "version": "0.0.0",
+  "private": true,
+  "description": "World Design System – cross-platform design tokens",
+  "type": "module",
+  "scripts": {
+    "build": "node config.mjs",
+    "clean": "rm -rf build"
+  },
+  "dependencies": {
+    "style-dictionary": "^5.3.3"
+  }
+}
