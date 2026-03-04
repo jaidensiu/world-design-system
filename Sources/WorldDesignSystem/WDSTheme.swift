@@ -1,35 +1,36 @@
 import Foundation
 
 /// Semantic color set for the World Design System.
-public struct WDSSemanticColors {
+/// All values are hex strings (e.g. "FFFFFF") – the consuming app bridges to its own color type.
+public struct WDSSemanticColors: Sendable {
     // Background
-    public let backgroundPrimary: WLDColor
-    public let backgroundSecondary: WLDColor
-    public let backgroundTertiary: WLDColor
+    public let backgroundPrimary: String
+    public let backgroundSecondary: String
+    public let backgroundTertiary: String
     // Text
-    public let textPrimary: WLDColor
-    public let textSecondary: WLDColor
-    public let textTertiary: WLDColor
-    public let textInverse: WLDColor
+    public let textPrimary: String
+    public let textSecondary: String
+    public let textTertiary: String
+    public let textInverse: String
     // Border
-    public let borderDefault: WLDColor
-    public let borderStrong: WLDColor
+    public let borderDefault: String
+    public let borderStrong: String
     // Action
-    public let actionPrimary: WLDColor
-    public let actionPrimaryContent: WLDColor
-    public let actionSecondary: WLDColor
-    public let actionDisabled: WLDColor
-    public let actionDisabledContent: WLDColor
+    public let actionPrimary: String
+    public let actionPrimaryContent: String
+    public let actionSecondary: String
+    public let actionDisabled: String
+    public let actionDisabledContent: String
     // Status
-    public let statusError: WLDColor
-    public let statusWarning: WLDColor
-    public let statusSuccess: WLDColor
-    public let statusInfo: WLDColor
+    public let statusError: String
+    public let statusWarning: String
+    public let statusSuccess: String
+    public let statusInfo: String
     // Tab Bar
-    public let tabBarSelected: WLDColor
-    public let tabBarUnselected: WLDColor
-    public let tabBarBackground: WLDColor
-    public let tabBarBorder: WLDColor
+    public let tabBarSelected: String
+    public let tabBarUnselected: String
+    public let tabBarBackground: String
+    public let tabBarBorder: String
 }
 
 public enum WDSTheme {
@@ -81,32 +82,5 @@ public enum WDSTheme {
         tabBarUnselected: DarkTheme.tabBarUnselected,
         tabBarBackground: DarkTheme.tabBarBackground,
         tabBarBorder: DarkTheme.tabBarBorder
-    )
-
-    /// Adaptive colors using `WLDColor(light:dark:)` – resolves at runtime
-    /// based on the user's current interface style.
-    public static let adaptive = WDSSemanticColors(
-        backgroundPrimary: WLDColor(light: LightTheme.backgroundPrimary.hex, dark: DarkTheme.backgroundPrimary.hex),
-        backgroundSecondary: WLDColor(light: LightTheme.backgroundSecondary.hex, dark: DarkTheme.backgroundSecondary.hex),
-        backgroundTertiary: WLDColor(light: LightTheme.backgroundTertiary.hex, dark: DarkTheme.backgroundTertiary.hex),
-        textPrimary: WLDColor(light: LightTheme.textPrimary.hex, dark: DarkTheme.textPrimary.hex),
-        textSecondary: WLDColor(light: LightTheme.textSecondary.hex, dark: DarkTheme.textSecondary.hex),
-        textTertiary: WLDColor(light: LightTheme.textTertiary.hex, dark: DarkTheme.textTertiary.hex),
-        textInverse: WLDColor(light: LightTheme.textInverse.hex, dark: DarkTheme.textInverse.hex),
-        borderDefault: WLDColor(light: LightTheme.borderDefault.hex, dark: DarkTheme.borderDefault.hex),
-        borderStrong: WLDColor(light: LightTheme.borderStrong.hex, dark: DarkTheme.borderStrong.hex),
-        actionPrimary: WLDColor(light: LightTheme.actionPrimary.hex, dark: DarkTheme.actionPrimary.hex),
-        actionPrimaryContent: WLDColor(light: LightTheme.actionPrimaryContent.hex, dark: DarkTheme.actionPrimaryContent.hex),
-        actionSecondary: WLDColor(light: LightTheme.actionSecondary.hex, dark: DarkTheme.actionSecondary.hex),
-        actionDisabled: WLDColor(light: LightTheme.actionDisabled.hex, dark: DarkTheme.actionDisabled.hex),
-        actionDisabledContent: WLDColor(light: LightTheme.actionDisabledContent.hex, dark: DarkTheme.actionDisabledContent.hex),
-        statusError: WLDColor(light: LightTheme.statusError.hex, dark: DarkTheme.statusError.hex),
-        statusWarning: WLDColor(light: LightTheme.statusWarning.hex, dark: DarkTheme.statusWarning.hex),
-        statusSuccess: WLDColor(light: LightTheme.statusSuccess.hex, dark: DarkTheme.statusSuccess.hex),
-        statusInfo: WLDColor(light: LightTheme.statusInfo.hex, dark: DarkTheme.statusInfo.hex),
-        tabBarSelected: WLDColor(light: LightTheme.tabBarSelected.hex, dark: DarkTheme.tabBarSelected.hex),
-        tabBarUnselected: WLDColor(light: LightTheme.tabBarUnselected.hex, dark: DarkTheme.tabBarUnselected.hex),
-        tabBarBackground: WLDColor(light: LightTheme.tabBarBackground.hex, dark: DarkTheme.tabBarBackground.hex),
-        tabBarBorder: WLDColor(light: LightTheme.tabBarBorder.hex, dark: DarkTheme.tabBarBorder.hex)
     )
 }
