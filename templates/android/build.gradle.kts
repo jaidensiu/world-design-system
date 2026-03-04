@@ -27,6 +27,10 @@ kotlin {
     jvmToolchain(17)
 }
 
+java {
+    withSourcesJar()
+}
+
 publishing {
     publications {
         create<MavenPublication>("maven") {
