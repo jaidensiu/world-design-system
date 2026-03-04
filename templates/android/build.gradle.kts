@@ -1,5 +1,6 @@
 plugins {
-    kotlin("jvm") version "1.9.22"
+    kotlin("jvm") version "2.0.21"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.0.21"
     `maven-publish`
 }
 
@@ -14,12 +15,12 @@ repositories {
 }
 
 dependencies {
-    compileOnly("androidx.compose.ui:ui:1.6.1")
-    compileOnly("androidx.compose.ui:ui-text:1.6.1")
-    compileOnly("androidx.compose.runtime:runtime:1.6.1")
-    compileOnly("androidx.compose.ui:ui-unit:1.6.1")
-    compileOnly("androidx.compose.ui:ui-graphics:1.6.1")
-    compileOnly("androidx.compose.foundation:foundation:1.6.1")
+    compileOnly("androidx.compose.ui:ui:1.7.6")
+    compileOnly("androidx.compose.ui:ui-text:1.7.6")
+    compileOnly("androidx.compose.runtime:runtime:1.7.6")
+    compileOnly("androidx.compose.ui:ui-unit:1.7.6")
+    compileOnly("androidx.compose.ui:ui-graphics:1.7.6")
+    compileOnly("androidx.compose.foundation:foundation:1.7.6")
 }
 
 kotlin {
