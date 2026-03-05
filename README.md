@@ -9,7 +9,7 @@ Cross-platform design tokens for the World App, built with [Style Dictionary](ht
 1. **Primitive tokens** – Raw palette values (grey, error, warning, success, info, specialty, crypto, avatar). Theme-agnostic.
 2. **Semantic tokens** – Role-based references (`background.primary`, `text.primary`, `action.primary`). Resolve differently per light/dark theme.
 
-**Platform outputs are standalone** – no dependency on app-specific types. Android gets Compose `Color` objects; iOS gets raw hex `String` constants and a `WDSFontSpec` struct. The consuming app bridges these to its own types (e.g. `WLDColor`, `WLDFont`).
+**Platform outputs are standalone** – no dependency on app-specific types. Android gets Compose `Color` objects; iOS gets raw hex `String` constants and a `WdsFontSpec` struct. The consuming app bridges these to its own types (e.g. `WLDColor`, `WLDFont`).
 
 ## Quick Start
 
@@ -37,29 +37,24 @@ Generated files appear in `build/`:
 | `tokens/semantic/dark.json` | Semantic-to-primitive mappings for dark theme |
 | `tokens/typography/scale.json` | Full type scale (d1, n1-5, h1-4, s1-4, l1-3, b1-4) |
 | `tokens/spacing/spacing.json` | Spacing scale (xxs through xxl) |
-| `tokens/component/border-radius.json` | Border radius tokens |
-| `tokens/component/button.json` | Button size tokens |
-| `tokens/component/shadow.json` | Shadow definitions |
 
 ## Generated Output
 
 ### Android (Kotlin/Compose)
 
-- `WDSColorPalette` – Primitive colors as `Color` objects
-- `LightColorTokens` / `DarkColorTokens` – Semantic theme colors
-- `WDSTypography` – Type scale as `TextStyle` values
-- `WDSSpacing` – Spacing scale as `Dp` values
-- `WDSComponents` – Border radius, button sizes, shadows
-- `WDSTheme` – Composable theme provider with `WDS.colors` accessor
+- `WdsColorPalette` – Primitive colors as `Color` objects
+- `WdsLightColorTokens` / `WdsDarkColorTokens` – Semantic theme colors
+- `WdsTypography` – Type scale as `TextStyle` values
+- `WdsSpacing` – Spacing scale as `Dp` values
+- `WdsTheme` – Composable theme provider with `Wds.colors` accessor
 
 ### iOS (Swift)
 
-- `WDSColorPalette` – Primitive colors as hex `String` constants
-- `LightTheme` / `DarkTheme` – Semantic theme colors as hex strings
-- `WDSTypography` – Type scale as `WDSFontSpec` values
-- `WDSSpacing` – Spacing scale as `CGFloat` values
-- `WDSComponents` – Border radius, button sizes, `WDSShadow` values
-- `WDSTheme` – Light/dark `WDSSemanticColors` bundles
+- `WdsColorPalette` – Primitive colors as hex `String` constants
+- `WdsLightColorTokens` / `WdsDarkColorTokens` – Semantic theme colors as hex strings
+- `WdsTypography` – Type scale as `WdsFontSpec` values
+- `WdsSpacing` – Spacing scale as `CGFloat` values
+- `WdsTheme` – Light/dark `WdsSemanticColors` bundles
 
 ## CI/CD
 
@@ -97,7 +92,7 @@ Then add the dependency:
 implementation "com.worldcoin:design-system:<version>"
 ```
 
-Wrap your composable tree in `WDSTheme { ... }` and access tokens via `WDS.colors`, `WDSTypography`, `WDSSpacing`, etc.
+Wrap your composable tree in `WdsTheme { ... }` and access tokens via `Wds.colors`, `WdsTypography`, `WdsSpacing`, etc.
 
 ### iOS
 
@@ -125,15 +120,15 @@ Bridge the standalone tokens to your app types:
 ```swift
 import WorldDesignSystem
 
-// Colors – WDSColorPalette contains hex strings
-let color = WLDColor(WDSColorPalette.colorGrey900)
+// Colors – WdsColorPalette contains hex strings
+let color = WLDColor(WdsColorPalette.colorGrey900)
 
-// Typography – WDSTypography contains WDSFontSpec values
-let spec = WDSTypography.h1
+// Typography – WdsTypography contains WdsFontSpec values
+let spec = WdsTypography.h1
 let font = WLDFont(size: spec.size, weight: Weight(integerLiteral: Int(spec.weight)), ...)
 
 // Semantic themes
-let lightBg = WDSTheme.light.backgroundPrimary  // hex String
+let lightBg = WdsTheme.light.backgroundPrimary  // hex String
 ```
 
 ## Adding / Modifying Tokens
