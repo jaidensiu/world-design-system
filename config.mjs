@@ -8,14 +8,12 @@ import {
   composeThemeColors,
   composeTypography,
   composeSpacing,
-  composeComponents,
 } from './formats/compose.mjs';
 import {
   swiftColorDefaults,
   swiftColorTheme,
   swiftFontDefaults,
   swiftSpacing,
-  swiftComponents,
 } from './formats/swift.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -28,12 +26,10 @@ const allFormats = [
   composeThemeColors,
   composeTypography,
   composeSpacing,
-  composeComponents,
   swiftColorDefaults,
   swiftColorTheme,
   swiftFontDefaults,
   swiftSpacing,
-  swiftComponents,
 ];
 
 // ---------------------------------------------------------------------------
@@ -46,9 +42,6 @@ const primitiveSources = [
   'tokens/color/avatar.json',
   'tokens/typography/scale.json',
   'tokens/spacing/spacing.json',
-  'tokens/component/border-radius.json',
-  'tokens/component/button.json',
-  'tokens/component/shadow.json',
 ];
 
 // ---------------------------------------------------------------------------
@@ -94,11 +87,6 @@ async function buildTheme(theme) {
                     token.$type === 'dimension' &&
                     token.path[0] === 'spacing',
                 },
-                {
-                  destination: 'WdsComponents.kt',
-                  format: 'compose/components',
-                  filter: (token) => token.path[0] === 'component',
-                },
               ]
             : [],
       },
@@ -138,11 +126,6 @@ async function buildTheme(theme) {
                   filter: (token) =>
                     token.$type === 'dimension' &&
                     token.path[0] === 'spacing',
-                },
-                {
-                  destination: 'WdsComponents.swift',
-                  format: 'swift/components',
-                  filter: (token) => token.path[0] === 'component',
                 },
               ]
             : [],
