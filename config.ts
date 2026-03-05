@@ -34,13 +34,11 @@ const allFormats: Format[] = [
 ];
 
 // ---------------------------------------------------------------------------
-// Token source paths (primitives + components – shared across themes)
+// Token source paths (primitives – shared across themes)
 // ---------------------------------------------------------------------------
 const primitiveSources: string[] = [
   'tokens/color/base.json',
   'tokens/color/specialty.json',
-  'tokens/color/crypto.json',
-  'tokens/color/avatar.json',
   'tokens/typography/scale.json',
   'tokens/spacing/spacing.json',
 ];

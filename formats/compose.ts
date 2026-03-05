@@ -31,7 +31,7 @@ function fontWeightToCompose(weight: number): string {
 
 /**
  * compose/colorObject – Generates a Kotlin object with Color(...) constants.
- * Used for primitive palette colors, crypto colors, specialty colors, avatar colors.
+ * Used for primitive palette colors and specialty colors.
  */
 export const composeColorObject: Format = {
   name: 'compose/colorObject',

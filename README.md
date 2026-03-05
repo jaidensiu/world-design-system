@@ -6,7 +6,7 @@ Cross-platform design tokens for the World App, built with [Style Dictionary](ht
 
 **Two-layer token system:**
 
-1. **Primitive tokens** – Raw palette values (grey, error, warning, success, info, specialty, crypto, avatar). Theme-agnostic.
+1. **Primitive tokens** – Raw palette values (grey, error, warning, success, info, specialty). Theme-agnostic.
 2. **Semantic tokens** – Role-based references (`background.primary`, `text.primary`, `action.primary`). Resolve differently per light/dark theme.
 
 **Platform outputs are standalone** – no dependency on app-specific types. Android gets Compose `Color` objects; iOS gets raw hex `String` constants and a `WdsFontSpec` struct. The consuming app bridges these to its own types (e.g. `WLDColor`, `WLDFont`).
@@ -31,8 +31,6 @@ Generated files appear in `build/`:
 |------|-------------|
 | `tokens/color/base.json` | Grey, error, warning, success, info palettes |
 | `tokens/color/specialty.json` | Brand colors (worldBlue, carrotOrange, purple, etc.) |
-| `tokens/color/crypto.json` | Crypto token colors (WLD, USDC, BTC, ETH) |
-| `tokens/color/avatar.json` | 10 avatar foreground/background pairs |
 | `tokens/semantic/light.json` | Semantic-to-primitive mappings for light theme |
 | `tokens/semantic/dark.json` | Semantic-to-primitive mappings for dark theme |
 | `tokens/typography/scale.json` | Full type scale (d1, n1-5, h1-4, s1-4, l1-3, b1-4) |
