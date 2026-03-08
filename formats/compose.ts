@@ -5,7 +5,7 @@
 import type { Format, FormatFnArguments } from 'style-dictionary/types';
 import type { TypographyTokenValue, FontWeightKey } from './types.js';
 
-const PACKAGE = 'com.worldcoin.designsystem';
+const PACKAGE = 'com.jaidensiu.worldDesignSystem';
 
 function hexToArgb(hex: string): string {
   const h = hex.replace('#', '');

@@ -34,7 +34,7 @@ java {
 publishing {
     publications {
         create<MavenPublication>("maven") {
-            groupId = "com.worldcoin"
+            groupId = "com.jaidensiu"
             this.artifactId = artifactId
             this.version = project.version.toString()
             from(components["java"])

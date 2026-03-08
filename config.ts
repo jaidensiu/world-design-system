@@ -59,7 +59,7 @@ const primitiveSources: string[] = [
 // Output paths
 // ---------------------------------------------------------------------------
 const androidOut =
-  'build/android/src/main/kotlin/com/worldcoin/designsystem';
+  'build/android/src/main/kotlin/com/jaidensiu/worldDesignSystem';
 const iosOut = 'build/ios/Sources/WorldDesignSystem';
 const webOut = 'build/web';
 
@@ -248,7 +248,7 @@ function copyTemplates(): void {
       to: 'build/android/settings.gradle.kts',
     },
     {
-      from: 'templates/android/src/main/kotlin/com/worldcoin/designsystem/WdsTheme.kt',
+      from: 'templates/android/src/main/kotlin/com/jaidensiu/worldDesignSystem/WdsTheme.kt',
       to: `${androidOut}/WdsTheme.kt`,
     },
     {

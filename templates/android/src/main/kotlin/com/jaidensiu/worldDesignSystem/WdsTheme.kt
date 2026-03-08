@@ -1,4 +1,4 @@
-package com.worldcoin.designsystem
+package com.jaidensiu.worldDesignSystem
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
