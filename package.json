@@ -1,6 +1,6 @@
 {
   "name": "@worldcoin/design-tokens",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "private": true,
   "description": "World Design System – cross-platform design tokens",
   "type": "module",
