@@ -385,6 +385,12 @@ function ThemeToggle({
 export default function Home() {
   const { theme, toggle } = useTheme();
   const [activeTab, setActiveTab] = useState<Tab>("colors");
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
 
   const tabs: { id: Tab; label: string }[] = [
     { id: "colors", label: "Colors" },
@@ -413,7 +419,8 @@ export default function Home() {
               </a>
             </p>
           </div>
-          <div className="flex items-center gap-3">
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-3">
             <div className="flex items-center gap-1 rounded-lg bg-surface p-1">
               {tabs.map((tab) => (
                 <button
@@ -431,8 +438,106 @@ export default function Home() {
             </div>
             <ThemeToggle theme={theme} toggle={toggle} />
           </div>
+          {/* Mobile hamburger + theme toggle */}
+          <div className="flex md:hidden items-center gap-2">
+            <ThemeToggle theme={theme} toggle={toggle} />
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="rounded-lg border border-border p-2 hover:bg-surface transition-colors"
+              aria-label="Toggle menu"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                {menuOpen ? (
+                  <>
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </>
+                ) : (
+                  <>
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <line x1="3" y1="12" x2="21" y2="12" />
+                    <line x1="3" y1="18" x2="21" y2="18" />
+                  </>
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
       </header>
+      {/* Mobile fullscreen menu overlay */}
+      {menuOpen && (
+        <div className="md:hidden fixed inset-0 z-20 bg-background flex flex-col overflow-hidden">
+          <div className="px-6 py-4 flex items-center justify-between border-b border-border">
+            <div>
+              <h1 className="text-lg font-semibold tracking-tight">
+                World Design System
+              </h1>
+              <p className="text-xs text-muted">
+                Design tokens reference &middot; v{TOKENS_VERSION} &middot;{" "}
+                <a
+                  href={GITHUB_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-foreground transition-colors"
+                >
+                  GitHub
+                </a>
+              </p>
+            </div>
+            <div className="flex items-center gap-2">
+              <ThemeToggle theme={theme} toggle={toggle} />
+              <button
+                onClick={() => setMenuOpen(false)}
+                className="rounded-lg border border-border p-2 hover:bg-surface transition-colors"
+                aria-label="Close menu"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <nav className="flex-1 flex flex-col gap-1 px-6 py-6">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => {
+                  setActiveTab(tab.id);
+                  setMenuOpen(false);
+                }}
+                className={`rounded-md px-4 py-3 text-lg font-medium text-left transition-colors ${
+                  activeTab === tab.id
+                    ? "bg-surface text-foreground"
+                    : "text-muted hover:text-foreground hover:bg-surface/50"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </nav>
+        </div>
+      )}
       <main className="mx-auto max-w-5xl px-6 py-8">
         {activeTab === "colors" && <ColorsSection />}
         {activeTab === "semantic" && <SemanticSection />}
